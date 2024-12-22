@@ -42,9 +42,10 @@
             transform-origin: center;
         }
 
+        /* Snowfall animation for realistic fall */
         @keyframes fall {
             0% {
-                transform: translateY(-10px);
+                transform: translateY(-100px);
             }
 
             100% {
@@ -65,7 +66,7 @@
         /* Header */
         header {
             position: relative;
-            background: url('https://via.placeholder.com/1920x1080?text=Spa+Image+Placeholder') center center no-repeat;
+            background: url('https://images.unsplash.com/photo-1595080708787-7a5403b4c524') center center no-repeat;
             background-size: cover;
             color: white;
             height: 100vh;
@@ -233,7 +234,7 @@
     <div class="container">
         <!-- Spa Information Section -->
         <section class="spa-info">
-            <img src="https://via.placeholder.com/1200x600?text=Spa+Image+Placeholder" alt="The Joule Spa Interior" />
+            <img src="https://images.unsplash.com/photo-1601933663564-bdcb7d8329a0" alt="The Joule Spa Interior" />
             <h2>Welcome to The Joule Spa</h2>
             <p>Imagine a place where serenity meets luxury — that's The Joule Spa. Whether you seek ultimate relaxation through our signature massages or want to feel rejuvenated with one of our world-class facials, this is your retreat. Located in the heart of Dallas, every treatment is designed to soothe your body, mind, and spirit.</p>
             <p>Let us take you on a journey of tranquility, complete with luxurious treatments, beautiful surroundings, and unmatched service. The Joule Spa isn't just a place; it's an experience. Your personal oasis awaits.</p>
@@ -279,18 +280,8 @@
             });
         }
 
-        // Generate snowflakes
-        setInterval(createSnowflake, 100); // Create snowflakes every 100ms
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // Generate Snowflakes
+        setInterval(createSnowflake, 50);
 
         // Scroll to Top Button
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
