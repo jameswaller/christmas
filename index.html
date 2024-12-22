@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Spa Day at The Joule</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Roboto:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* Basic Reset */
         * {
@@ -38,10 +37,9 @@
             position: absolute;
             background-color: #fff;
             border-radius: 50%;
-            width: 10px;
-            height: 10px;
-            animation: fall 10s linear infinite;
+            animation: fall 10s linear infinite, drift 10s linear infinite;
             opacity: 0.9;
+            transform-origin: center;
         }
 
         @keyframes fall {
@@ -54,10 +52,20 @@
             }
         }
 
+        @keyframes drift {
+            0% {
+                transform: translateX(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateX(100px) rotate(360deg);
+            }
+        }
+
         /* Header */
         header {
             position: relative;
-            background: url('https://www.thejouledallas.com/sites/default/files/2022-02/the-joule-spa-dallas-1.jpg') center center no-repeat;
+            background: url('https://via.placeholder.com/1920x1080?text=Spa+Image+Placeholder') center center no-repeat;
             background-size: cover;
             color: white;
             height: 100vh;
@@ -195,6 +203,16 @@
         .scroll-to-top:hover {
             background-color: #FF9E00;
         }
+
+        /* Custom Colors */
+        .gold {
+            color: #FFB400;
+        }
+
+        .green {
+            color: #2C6B46;
+        }
+
     </style>
 </head>
 
@@ -203,11 +221,11 @@
     <!-- Snowfall Animation -->
     <div id="snow" class="snow"></div>
 
-    <!-- Header Section -->
+    <!-- Header Section with Personalized Greeting -->
     <header>
         <div class="header-content">
-            <h1>Your Spa Day Awaits!</h1>
-            <p class="subheading">A relaxing experience at The Joule in Dallas, just for you!</p>
+            <h1>Hello, Mrs. Waller!</h1>
+            <p class="subheading">Your Day in Paradise Awaits at The Joule</p>
         </div>
     </header>
 
@@ -215,15 +233,10 @@
     <div class="container">
         <!-- Spa Information Section -->
         <section class="spa-info">
-            <img src="https://www.thejouledallas.com/sites/default/files/2022-02/the-joule-spa-dallas-2.jpg" alt="The Joule Spa Interior" />
+            <img src="https://via.placeholder.com/1200x600?text=Spa+Image+Placeholder" alt="The Joule Spa Interior" />
             <h2>Welcome to The Joule Spa</h2>
-            <p>The Joule offers a truly immersive luxury spa experience that invites you to relax, unwind, and rejuvenate.
-                Whether it's the signature massage therapy, invigorating facials, or the full-service amenities, The Joule
-                delivers a one-of-a-kind experience in the heart of Dallas. With a calm and elegant ambiance, it’s the
-                perfect escape for you to relax and recharge.</p>
-            <p>The Joule is not just a place for treatments; it's a sanctuary that offers an elevated experience from start
-                to finish. Every detail, from the soothing décor to the professional service, will make your time feel
-                extra special.</p>
+            <p>Imagine a place where serenity meets luxury — that's The Joule Spa. Whether you seek ultimate relaxation through our signature massages or want to feel rejuvenated with one of our world-class facials, this is your retreat. Located in the heart of Dallas, every treatment is designed to soothe your body, mind, and spirit.</p>
+            <p>Let us take you on a journey of tranquility, complete with luxurious treatments, beautiful surroundings, and unmatched service. The Joule Spa isn't just a place; it's an experience. Your personal oasis awaits.</p>
             <a href="https://www.thejouledallas.com/spa" class="cta-button" target="_blank">Learn More About Your Gift</a>
         </section>
     </div>
@@ -240,13 +253,24 @@
         // Snow Effect
         const snowContainer = document.getElementById('snow');
 
+        // Create a snowflake
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snowflake');
+            
+            // Random size for each snowflake
+            const size = Math.random() * 5 + 5; // Size between 5px and 10px
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+
+            // Random starting position
             snowflake.style.left = `${Math.random() * 100}vw`;
-            snowflake.style.animationDuration = `${Math.random() * 3 + 7}s`;
-            snowflake.style.animationDelay = `${Math.random() * 5}s`;
-            snowflake.style.opacity = Math.random() * 0.5 + 0.5;
+            snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Random duration
+            snowflake.style.animationDelay = `${Math.random() * 5}s`; // Random delay
+
+            // Random rotation
+            snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
+
             snowContainer.appendChild(snowflake);
 
             // Remove snowflake after it falls off screen
@@ -255,6 +279,7 @@
             });
         }
 
+        // Generate snowflakes
         setInterval(createSnowflake, 100); // Create snowflakes every 100ms
 
         // Smooth Scrolling
