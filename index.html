@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Spa Day at The Joule</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Your Spa Day at The Joule - Christmas Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Basic Reset */
         * {
             margin: 0;
             padding: 0;
@@ -15,10 +14,84 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f1f1f1;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
             color: #333;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Parallax Effect */
+        .parallax {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1601933663564-bdcb7d8329a0') center center no-repeat;
+            background-size: cover;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .parallax-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+        }
+
+        .parallax h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            color: #FFD700; /* Gold */
+            margin-bottom: 20px;
+        }
+
+        .parallax .subheading {
+            font-size: 1.8rem;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 50px 0;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            color: #2C6B46; /* Deep Green */
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background-color: #FFB400; /* Gold */
+            color: white;
+            font-size: 1.5rem;
+            padding: 18px 35px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #FF9E00;
         }
 
         /* Snow Effect */
@@ -26,26 +99,22 @@
             position: fixed;
             top: 0;
             left: 0;
-            pointer-events: none;
-            z-index: 9999;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            pointer-events: none;
+            z-index: 999;
         }
 
         .snowflake {
             position: absolute;
             background-color: #fff;
             border-radius: 50%;
-            animation: fall 10s linear infinite, drift 10s linear infinite;
-            opacity: 0.9;
-            transform-origin: center;
+            animation: fall linear infinite, drift linear infinite;
         }
 
-        /* Snowfall animation for realistic fall */
         @keyframes fall {
             0% {
-                transform: translateY(-100px);
+                transform: translateY(-10px);
             }
 
             100% {
@@ -63,114 +132,23 @@
             }
         }
 
-        /* Header */
-        header {
-            position: relative;
-            background: url('https://images.unsplash.com/photo-1595080708787-7a5403b4c524') center center no-repeat;
-            background-size: cover;
-            color: white;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background-attachment: fixed;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-            color: #fff;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-        }
-
-        h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-
-        .subheading {
-            font-size: 1.8rem;
-            font-weight: 500;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .spa-info {
-            background: #fff;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            margin-top: -100px;
-            z-index: 2;
-            position: relative;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .spa-info img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-
-        .spa-info h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .spa-info p {
-            font-size: 1.2rem;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .cta-button {
-            display: inline-block;
+        /* Scroll-to-Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
             background-color: #FFB400;
-            color: #fff;
-            font-size: 1.4rem;
-            padding: 18px 35px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #FF9E00;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2c3e50;
             color: white;
-            padding: 30px 20px;
-            text-align: center;
-            position: relative;
+            font-size: 1.5rem;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #FF9E00;
         }
 
         /* Animations */
@@ -186,102 +164,71 @@
             }
         }
 
-        /* Scroll to top button */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background-color: #FFB400;
-            color: #fff;
-            padding: 15px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none;
-            transition: opacity 0.3s ease;
+        /* Footer */
+        footer {
+            background-color: #2C3E50; /* Deep Blue */
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
         }
-
-        .scroll-to-top:hover {
-            background-color: #FF9E00;
-        }
-
-        /* Custom Colors */
-        .gold {
-            color: #FFB400;
-        }
-
-        .green {
-            color: #2C6B46;
-        }
-
     </style>
 </head>
 
 <body>
 
-    <!-- Snowfall Animation -->
+    <!-- Snowfall Effect -->
     <div id="snow" class="snow"></div>
 
-    <!-- Header Section with Personalized Greeting -->
-    <header>
-        <div class="header-content">
+    <!-- Parallax Header -->
+    <div class="parallax">
+        <div class="parallax-content">
             <h1>Hello, Mrs. Waller!</h1>
             <p class="subheading">Your Day in Paradise Awaits at The Joule</p>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Spa Information Section -->
-        <section class="spa-info">
-            <img src="https://images.unsplash.com/photo-1601933663564-bdcb7d8329a0" alt="The Joule Spa Interior" />
-            <h2>Welcome to The Joule Spa</h2>
-            <p>Imagine a place where serenity meets luxury — that's The Joule Spa. Whether you seek ultimate relaxation through our signature massages or want to feel rejuvenated with one of our world-class facials, this is your retreat. Located in the heart of Dallas, every treatment is designed to soothe your body, mind, and spirit.</p>
-            <p>Let us take you on a journey of tranquility, complete with luxurious treatments, beautiful surroundings, and unmatched service. The Joule Spa isn't just a place; it's an experience. Your personal oasis awaits.</p>
-            <a href="https://www.thejouledallas.com/spa" class="cta-button" target="_blank">Learn More About Your Gift</a>
-        </section>
     </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+        <h2>Welcome to The Joule Spa</h2>
+        <p>Imagine a place where serenity meets luxury — that's The Joule Spa. Whether you seek ultimate relaxation through our signature massages or want to feel rejuvenated with one of our world-class facials, this is your retreat. Located in the heart of Dallas, every treatment is designed to soothe your body, mind, and spirit.</p>
+        <p>Let us take you on a journey of tranquility, complete with luxurious treatments, beautiful surroundings, and unmatched service. The Joule Spa isn't just a place; it's an experience. Your personal oasis awaits.</p>
+        <a href="https://www.thejouledallas.com/spa" class="cta-button" target="_blank">Learn More About Your Gift</a>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTopBtn">↑</div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 A Special Christmas Surprise</p>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <div class="scroll-to-top" id="scrollToTopBtn">↑</div>
-
     <script>
-        // Snow Effect
+        // Snowfall Effect
         const snowContainer = document.getElementById('snow');
 
-        // Create a snowflake
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snowflake');
-            
-            // Random size for each snowflake
-            const size = Math.random() * 5 + 5; // Size between 5px and 10px
+
+            const size = Math.random() * 10 + 5;
             snowflake.style.width = `${size}px`;
             snowflake.style.height = `${size}px`;
 
-            // Random starting position
             snowflake.style.left = `${Math.random() * 100}vw`;
-            snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Random duration
-            snowflake.style.animationDelay = `${Math.random() * 5}s`; // Random delay
+            snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`;
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;
 
-            // Random rotation
             snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
 
             snowContainer.appendChild(snowflake);
 
-            // Remove snowflake after it falls off screen
             snowflake.addEventListener('animationend', () => {
                 snowflake.remove();
             });
         }
 
-        // Generate Snowflakes
-        setInterval(createSnowflake, 50);
+        setInterval(createSnowflake, 100); // Create snowflakes every 100ms
 
         // Scroll to Top Button
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
