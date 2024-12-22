@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Spa Day at The Joule</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Snow effect */
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .snowflake {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            opacity: 0.9;
+            animation: fall 10s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Page Styling */
+        header {
+            background: linear-gradient(to bottom, #3b6cb4, #2c497d);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 5px solid #ffba00;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .subheading {
+            font-size: 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .spa-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .spa-info img {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .spa-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ffba00;
+        }
+
+        .spa-info p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ffba00;
+            color: white;
+            font-size: 1.25rem;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff8500;
+        }
+
+        footer {
+            background-color: #2c497d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Snowfall animation -->
+    <div id="snow" class="snow"></div>
+
+    <!-- Main Header -->
+    <header>
+        <h1>Your Spa Day Awaits!</h1>
+        <p class="subheading">A relaxing experience at The Joule in Dallas, just for you!</p>
+    </header>
+
+    <div class="container">
+        <!-- Spa Information -->
+        <section class="spa-info">
+            <img src="https://www.thejouledallas.com/sites/default/files/2022-02/the-joule-spa-dallas-1.jpg" alt="The Joule Spa" />
+            <h2>Welcome to The Joule Spa</h2>
+            <p>Experience the ultimate in luxury and relaxation at The Joule, one of Dallas’ finest destination spas. Located in the heart of the city, The Joule offers a serene and rejuvenating atmosphere where you can escape from the everyday hustle and indulge in world-class treatments designed to refresh your mind and body.</p>
+            <p>Whether it's a full-body massage, a rejuvenating facial, or time spent in the infrared saunas, every aspect of your visit is designed with care and elegance. Treat yourself to the calming ambience and impeccable service that makes The Joule’s spa experience unmatched.</p>
+            <a href="https://www.thejouledallas.com/spa" class="cta-button" target="_blank">Learn More About Your Gift</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 A Special Christmas Surprise</p>
+    </footer>
+
+    <script>
+        // Snow Effect
+        const snowContainer = document.getElementById('snow');
+
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${Math.random() * 3 + 7}s`;
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;
+            snowflake.style.opacity = Math.random();
+            snowContainer.appendChild(snowflake);
+
+            // Remove snowflake after it falls off screen
+            snowflake.addEventListener('animationend', () => {
+                snowflake.remove();
+            });
+        }
+
+        setInterval(createSnowflake, 100); // Create snowflakes every 100ms
+    </script>
+
+</body>
+</html>
