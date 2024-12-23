@@ -46,7 +46,7 @@
             opacity: 0.8;
             font-size: 3em;
             color: #fff;
-            animation: fall 10s linear infinite;
+            animation: fall linear infinite;
             transform: rotate(0deg);
         }
 
@@ -293,10 +293,10 @@
     <section id="custom-message">
         <div class="container">
             <p>
+                Merry Christmas, baby! <br><br>
                 I see how hard you work every single day, putting in so much effort for both me and Madi. You are the heart of our little family, and your love and dedication never go unnoticed. I know you’ve earned this time to rest, unwind, and truly take care of yourself. <br><br>
                 I hope this spa day gives you the chance to relax and recharge, and reminds you that you are so deeply loved and appreciated. There’s no one more deserving of this than you. <br><br>
-                I love you beyond words, and I can't wait to see you enjoy this well-deserved break. Merry Christmas, and here's to many more moments of peace and joy together.<br><br>
-Merry Christmas, baby!
+                I love you beyond words, and I can't wait to see you enjoy this well-deserved break. Merry Christmas, and here's to many more moments of peace and joy together.
             </p>
         </div>
     </section>
@@ -309,7 +309,7 @@ Merry Christmas, baby!
 
     <!-- Footer Section -->
     <footer>
-        <p>Gifted with love this Christmas. Wishing you a serene and joyful holiday season.</p>
+        <p>Gifted with love this Christmas from your husband.</p>
     </footer>
 
     <!-- Bootstrap JS and jQuery -->
@@ -319,42 +319,41 @@ Merry Christmas, baby!
 
     <!-- JavaScript for Snowfall -->
     <script>
-        // JavaScript for creating snowflakes
         document.addEventListener('DOMContentLoaded', function () {
             const snowContainer = document.getElementById('snow');
-            const numFlakes = 50;  // Number of snowflakes
+            const numFlakes = 20;  // Reduced number of snowflakes
 
             function createSnowflake() {
                 const snowflake = document.createElement('div');
                 snowflake.classList.add('snowflake');
                 snowflake.innerHTML = '&#10052;';
 
-                // Random size
-                const size = Math.random() * 15 + 25 + 'px';  // Larger snowflakes
+                // Random size between 25px and 50px
+                const size = Math.random() * 50 + 25 + 'px';
                 snowflake.style.fontSize = size;
 
-                // Random position
+                // Random position: width of the screen
                 snowflake.style.left = Math.random() * window.innerWidth + 'px';
 
-                // Random speed
-                const speed = Math.random() * 5 + 3;
+                // Random speed between 6s and 15s (slower falling)
+                const speed = Math.random() * 9 + 6;
                 snowflake.style.animationDuration = speed + 's';
 
-                // Random rotation
+                // Random rotation (rotate the snowflakes)
                 const rotation = Math.random() * 360 + 'deg';
                 snowflake.style.transform = `rotate(${rotation})`;
 
-                // Append to the snow container
+                // Append the snowflake to the container
                 snowContainer.appendChild(snowflake);
 
-                // Remove the snowflake after it falls
+                // Remove the snowflake once it finishes its fall
                 snowflake.addEventListener('animationiteration', function () {
                     snowflake.remove();
                 });
             }
 
-            // Create snowflakes at intervals
-            setInterval(createSnowflake, 100);
+            // Create snowflakes at random intervals
+            setInterval(createSnowflake, Math.random() * 1000 + 100); // Random time interval
         });
     </script>
 </body>
